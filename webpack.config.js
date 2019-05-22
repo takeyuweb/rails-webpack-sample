@@ -9,14 +9,16 @@ module.exports = (_, argv) => {
 
   return {
     entry: {
-      hello_world: "./app/frontend/hello_world.ts",
-      style: "./app/frontend/style.scss"
+      hello_world: "./app/frontend/javascripts/hello_world.ts",
+      style: "./app/frontend/styles/style.scss"
     },
 
+    // public/bundle 以下にシグネチャ付きのファイル名で書き出す。
+    // 書き出したファイルにアクセスするためのURLは /bundle/ からはじまるように publicPath で指定する。
     output: {
       filename: "[name].[contenthash].js",
       path: dist,
-      publicPath: "bundle/"
+      publicPath: "/bundle/"
     },
 
     mode: isProduction ? "production" : "development",
@@ -38,15 +40,18 @@ module.exports = (_, argv) => {
             "sass-loader"
           ]
         },
+        // 画像
         {
           test: /\.(png|jpe?g)$/,
           use: [
             {
               loader: "file-loader",
               options: {
-                name: '[name].[contenthash].[ext]',
-                publicPath: '.',
-                outputPath: ''
+                // app/frontend/ 以下にある画像ファイルを import したら
+                // [app/frontend/ からの相対パス][ファイル名].[シグネチャ].[拡張子]
+                // に書き出す
+                context: './app/frontend/',
+                name: '[path][name].[contenthash].[ext]'
               }
             }
           ]

@@ -1,5 +1,5 @@
 // 使う画像
-require("./skyview.jpg");
+require("../images/skyview.jpg");
 
 interface Greeting {
   message: string;

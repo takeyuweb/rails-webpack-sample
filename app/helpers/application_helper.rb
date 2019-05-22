@@ -1,6 +1,6 @@
 module ApplicationHelper
-  def asset_bundle_tag(entry, **options)
-    asset_path(webpack_manifest.fetch(entry), **options)
+  def asset_bundle_tag(filename, **options)
+    asset_path(webpack_manifest.fetch(filename), **options)
   end
 
   def javascript_bundle_tag(entry, **options)
@@ -20,8 +20,13 @@ module ApplicationHelper
     stylesheet_link_tag '', options
   end
 
-  def image_bundle_tag(entry_with_extname, **options)
-    image_tag asset_bundle_tag(entry_with_extname), **options
+  # app/frontend/images/avatar.png を表示したいとき
+  #   image_tag("avatar")
+  #   # => <img src="/bundle/avatar" />
+  #   image_tag("avatar.png")
+  #   # => <img src="/bundle/avatar.png" />
+  def image_bundle_tag(source, **options)
+    image_tag asset_bundle_tag(File.join('images', source)), **options
   end
 
   private

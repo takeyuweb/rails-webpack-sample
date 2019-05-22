@@ -1,3 +1,6 @@
+// 使う画像
+require("./skyview.jpg");
+
 interface Greeting {
   message: string;
 }

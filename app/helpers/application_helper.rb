@@ -20,6 +20,10 @@ module ApplicationHelper
     stylesheet_link_tag '', options
   end
 
+  def image_bundle_tag(entry_with_extname, **options)
+    image_tag asset_bundle_tag(entry_with_extname), **options
+  end
+
   private
 
     def webpack_manifest

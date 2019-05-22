@@ -37,6 +37,19 @@ module.exports = (_, argv) => {
             "css-loader",
             "sass-loader"
           ]
+        },
+        {
+          test: /\.(png|jpe?g)$/,
+          use: [
+            {
+              loader: "file-loader",
+              options: {
+                name: '[name].[contenthash].[ext]',
+                publicPath: '.',
+                outputPath: ''
+              }
+            }
+          ]
         }
       ]
     },

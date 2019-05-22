@@ -1,6 +1,7 @@
 const path = require("path");
 const CleanWebpackPlugin = require("clean-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (_, argv) => {
   const isProduction = argv.mode === "production";
@@ -8,7 +9,8 @@ module.exports = (_, argv) => {
 
   return {
     entry: {
-      hello_world: "./app/frontend/hello_world.ts"
+      hello_world: "./app/frontend/hello_world.ts",
+      style: "./app/frontend/style.css"
     },
 
     output: {
@@ -26,7 +28,16 @@ module.exports = (_, argv) => {
     },
 
     module: {
-      rules: [{ test: /\.tsx?$/, loader: "ts-loader" }]
+      rules: [
+        { test: /\.tsx?$/, loader: "ts-loader" },
+        {
+          test: /\.css$/,
+          use: [
+            MiniCssExtractPlugin.loader,
+            "css-loader"
+          ]
+        }
+      ]
     },
 
     plugins: [
@@ -34,7 +45,10 @@ module.exports = (_, argv) => {
       new CleanWebpackPlugin(),
 
       // asset manifestファイルを作成する
-      new ManifestPlugin({ fileName: "webpack-manifest.json" })
+      new ManifestPlugin({ fileName: "webpack-manifest.json" }),
+
+      // CSSファイルを作成する
+      new MiniCssExtractPlugin({filename: '[name].[contenthash].css'}),
     ]
 
   };

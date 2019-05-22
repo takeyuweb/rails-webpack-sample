@@ -1,5 +1,4 @@
 const path = require("path");
-const CleanWebpackPlugin = require("clean-webpack-plugin");
 const ManifestPlugin = require("webpack-manifest-plugin");
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
@@ -60,9 +59,6 @@ module.exports = (_, argv) => {
     },
 
     plugins: [
-      // ビルド前にoutput先ディレクトリを空にする
-      new CleanWebpackPlugin(),
-
       // asset manifestファイルを作成する
       new ManifestPlugin({ fileName: "webpack-manifest.json" }),
 

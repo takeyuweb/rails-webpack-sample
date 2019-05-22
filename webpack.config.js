@@ -10,7 +10,7 @@ module.exports = (_, argv) => {
   return {
     entry: {
       hello_world: "./app/frontend/hello_world.ts",
-      style: "./app/frontend/style.css"
+      style: "./app/frontend/style.scss"
     },
 
     output: {
@@ -31,10 +31,11 @@ module.exports = (_, argv) => {
       rules: [
         { test: /\.tsx?$/, loader: "ts-loader" },
         {
-          test: /\.css$/,
+          test: /\.scss$/,
           use: [
             MiniCssExtractPlugin.loader,
-            "css-loader"
+            "css-loader",
+            "sass-loader"
           ]
         }
       ]

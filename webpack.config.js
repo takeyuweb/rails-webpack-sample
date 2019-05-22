@@ -1,6 +1,5 @@
 const path = require("path");
 const ManifestPlugin = require("webpack-manifest-plugin");
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = (_, argv) => {
   const isProduction = argv.mode === "production";
@@ -34,7 +33,7 @@ module.exports = (_, argv) => {
         {
           test: /\.scss$/,
           use: [
-            MiniCssExtractPlugin.loader,
+            "style-loader",
             "css-loader",
             "sass-loader"
           ]
@@ -61,9 +60,6 @@ module.exports = (_, argv) => {
     plugins: [
       // asset manifestファイルを作成する
       new ManifestPlugin({ fileName: "webpack-manifest.json" }),
-
-      // CSSファイルを作成する
-      new MiniCssExtractPlugin({filename: '[name].[contenthash].css'}),
     ]
 
   };

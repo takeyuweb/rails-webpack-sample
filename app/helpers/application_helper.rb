@@ -12,14 +12,6 @@ module ApplicationHelper
     javascript_include_tag('', **options)
   end
 
-  def stylesheet_bundle_tag(entry, **options)
-    options = {
-      href: asset_bundle_tag("#{entry}.css")
-    }.merge(options)
-
-    stylesheet_link_tag '', options
-  end
-
   # app/frontend/images/avatar.png を表示したいとき
   #   image_tag("avatar")
   #   # => <img src="/bundle/avatar" />

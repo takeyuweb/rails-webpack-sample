@@ -1,5 +1,7 @@
 // 使う画像
-require("../images/skyview.jpg");
+// いまのところこのようにどこかで読み込まないと
+// Railsテンプレートからは参照できない（ public/bundle 以下に書き出されない）
+import "../images/skyview.jpg";
 
 interface Greeting {
   message: string;

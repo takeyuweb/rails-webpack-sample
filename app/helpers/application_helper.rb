@@ -20,15 +20,6 @@ module ApplicationHelper
     stylesheet_link_tag '', options
   end
 
-  # app/frontend/images/avatar.png を表示したいとき
-  #   image_tag("avatar")
-  #   # => <img src="/bundle/avatar" />
-  #   image_tag("avatar.png")
-  #   # => <img src="/bundle/avatar.png" />
-  def image_bundle_tag(source, **options)
-    image_tag asset_bundle_tag(File.join('images', source)), **options
-  end
-
   private
 
     def webpack_manifest

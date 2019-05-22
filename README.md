@@ -70,8 +70,3 @@ Railsテンプレート中で `stylesheet_bundle_tag "style"`
 SCSS中なら `url("../images/path/to/file.png")` （`../` の部分は `.scss` からの相対ディレクトリ指定）
 
 JavaScript中なら `import img from '../images/path/to/file.png'` または `const img = require('../images/path/to/file.png')`
-
-Railsテンプレート中なら `image_bundle_tag "style"`
-※これだけでは参照できなくて、別途 `require('../images/path/to/file.png')` のようにwebpackに教えてあげる必要がある。
-
-既知の課題 [sprocketsのようにapp/frontend/images においた画像をJavaScript中でのimportなしにimage_bundle_tagでRailsテンプレート中から参照したい ](https://github.com/takeyuweb/rails-webpack-sample/issues/6)

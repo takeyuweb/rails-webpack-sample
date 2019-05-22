@@ -1,5 +1,30 @@
 # Rails + Webpack Sample
 
+![webpack](https://user-images.githubusercontent.com/60980/58201743-d059b700-7d10-11e9-82a8-27d1b652cc8e.gif)
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RailsWebpackSample</title>
+    <meta name="csrf-param" content="authenticity_token" />
+<meta name="csrf-token" content="dX15C0OggA0QK9Scweo/Bm0l7FnWMNGs1rQrlTodQm4JVZI48HBQGaYFa5ffE/yslP6I0vcKphKCmUFlqkl6Mg==" />
+    
+
+    <script src="/bundle/hello_world.17631fbd2bb2407e5b58.js" defer="defer"></script>
+    <link rel="stylesheet" media="screen" href="/bundle/style.a18b434aa32a868e5153.css" />
+  </head>
+
+  <body>
+    <h1>Home#index</h1>
+<p>Find me in app/views/home/index.html.erb</p>
+
+<!-- app/frontend/images/skyview.jpg -->
+<img src="/bundle/images/skyview.bf6a8ac49db7896747fa3b5c65cd71ba.jpg" />
+  </body>
+</html>
+```
+
 ## Setup
 
 ```bash
